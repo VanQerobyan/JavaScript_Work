@@ -1,9 +1,17 @@
+function isContains(str, subStr){
 
-let str="Learning JavaScript";
-let subStr="Java";
-
-if(str.includes("Java")){
-   console.log(true); 
-}else{
-    console.log(false);
+    if(str.includes(subStr)){
+        return true; 
+    }else{
+        return false;
+    }
 }
+
+
+
+var str = "Learning JavaScript";
+var subStr = "Jaava";
+
+var res = isContains(str, subStr);
+
+console.log("Contains: " + res);
