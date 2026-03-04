@@ -2,12 +2,12 @@
 function contSub(str, subStr){
 
     if(str.includes(subStr)){
-        console.log(subStr);
+        return true;
     }else{
-        console.log("Not substring")
+        return false;
     }
 }
 
 let str="Hello World";
-let subS="llo";
-contSub(str, subS);
+let subS="loo";
+console.log(contSub(str, subS));

@@ -1,12 +1,8 @@
 function isEven(num){
 
-    if (num < 0) {
-        return "Invalid numbers";
-    }
-
-    return num % 2 == 0;
+    return num % 2 === 0;
 }
 
 
-var num = -11;
+var num = -10;
 console.log(isEven(num));

@@ -3,21 +3,21 @@ function myType(str){
   
 
     if(typeof(str)==="string"){
-        console.log("string")
+        return "string";
     }else if(typeof(str)==="number"){
-        console.log("number");
+        return "number";
     }else if(typeof(str)==="boolean"){
-        console.log("boolean");
+        return "boolean";
     }else if(str===null){
-            console.log("null");
+            return "null";
     }else if(typeof(str)==="function"){
-           console.log("function");
+           return "function";
     } 
     else if(typeof(str)==="object"){
           if(Array.isArray(str)){
-            console.log("array");
+            return "array";
     }else {
-        console.log("object");
+        return "object";
      }  
    }
 }
@@ -27,4 +27,4 @@ function foo(){
 
 car = {make: "Toyota", year: 2020};
 let str1=[44, 55, 11];
-myType(car);
+console.log(myType(true));

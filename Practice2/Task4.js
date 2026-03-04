@@ -5,6 +5,10 @@ function countDigits(num) {
     if (num < 0) {
         num *= -1;
     }
+    if (num === 0) {
+        count++;
+        return count;
+    }
 
     //456
     while (num != 0) {

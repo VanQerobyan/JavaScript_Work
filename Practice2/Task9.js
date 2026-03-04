@@ -1,6 +1,6 @@
 function power(num, exp) {
 
-    if (num <= 0 || exp < 0) return "Invalid numbers";
+    if (exp < 0) return "Invalid numbers";
 
     var res = 1;
     for (var i = 0; i< exp; ++i){

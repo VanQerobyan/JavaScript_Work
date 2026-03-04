@@ -1,17 +1,13 @@
 function twoSum(num1, num2){
 
-    let myNum1=Number(num1);
-    let myNum2=Number(num2);
-
-
-    if(typeof(myNum1) === "number" && typeof(myNum2) === "number" && (!Number.isNaN(myNum1)) && (!Number.isNaN(myNum2))) return myNum1 + myNum2;
+     if ((typeof(num1) === "number" && typeof(num2) === "number") && (!Number.isNaN(num1)) && (!Number.isNaN(num2))) return myNum1 + myNum2;
 
     return "Invalid input";
 }
 
 
 let num1=4;
-let num2="7a";
+let num2="7";
 
 let res=twoSum(num1, num2);
 

@@ -3,7 +3,7 @@ let str="Learning JavaScript";
 let subStr="Java";
 
 if(str.includes("Java")){
-   console.log(subStr); 
+   console.log(true); 
 }else{
-    console.log("Not Substring");
+    console.log(false);
 }

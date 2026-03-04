@@ -1,6 +1,6 @@
 function minInArrays(arr) {
 
-    if (arr.length == 0) return "Invalid array";
+    if (arr.length === 0) return null;
 
     var min = arr[0];
 
