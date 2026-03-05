@@ -1,5 +1,7 @@
 function firstAndLast(arr) {
 
+    if (arr.length === 0) return arr;
+
     var arr1 = [];
 
     arr1[0] = arr[0];
@@ -9,5 +11,5 @@ function firstAndLast(arr) {
 }
 
 
-var arr = [8];
+var arr = [];
 console.log(firstAndLast(arr));
