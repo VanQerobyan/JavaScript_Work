@@ -6,7 +6,8 @@ function power(num, exp) {
     for (var i = 0; i< exp; ++i){
         res *= num;
     }
-    return res;
+    return  res;
+    // return num ** exp;
 }
 
 
