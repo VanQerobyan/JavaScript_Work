@@ -1,0 +1,21 @@
+
+function pipe(...funcs) {
+    let res = 0;
+    return function myPipe(val) {
+        for (let i = 0; i < funcs.length; ++i) {
+            res = funcs[i](val);
+            val = res;
+        }
+        return res;
+    }
+}
+
+
+const add5 = a => a + 5;
+const double = a => 2 * a;
+const sub4 = a => a - 4;
+
+const func = pipe(add5, add5, double, sub4); // 20
+console.log(func(2));
+
+

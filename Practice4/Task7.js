@@ -1,6 +1,6 @@
 let myObj1 = {
     num1: 10,
-    num3: 20
+    num4: 10
 };
 
 let myObj2 = {
@@ -26,3 +26,4 @@ function myIsEqual(myObj1, myObj2) {
 let res = myIsEqual(myObj1, myObj2);
 
 console.log(res);
+ 
