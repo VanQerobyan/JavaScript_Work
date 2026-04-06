@@ -33,6 +33,7 @@ class Book {
         return false;
     }
 
+
     matchesTitle(word) {
         if (this.title.includes(word)) {
             return true;
@@ -55,6 +56,9 @@ class Library {
     removeBook(title) {
         let elem = (element) => element.title === title;
         let index = this.books.findIndex(elem);
+        if (index === -1) {
+            throw new Error("Book not found:Index -1");
+        }
         this.books.splice(index, 1);
     }
 
@@ -67,8 +71,10 @@ class Library {
         }
     }
 
+
+
     findBooksByAuthor(authorName) {
-        let res = this.books.filter(element => element.author == authorName);
+        let res = this.books.filter(element => element.matchesAuthor(authorName));
         return res;
     }
 
@@ -97,8 +103,7 @@ class Library {
 
     showAllBooks() {
         this.books.forEach((elem, index, arr) => {
-        console.log("Book: " + index);
-        console.log(arr[index]);
+        console.log(arr[index].getInfo());
         });
     }
 
@@ -120,7 +125,7 @@ class Library {
     }
 
     searchBooks(word) {
-        let res = this.books.filter(element => element.title.includes(word));
+        let res = this.books.filter(element => element.matchesTitle(word));
         return res;
     }
 
@@ -132,7 +137,7 @@ class Library {
         let old = this.books[0].year;
         for (let i = 1; i < this.books.length; ++i) {
             if (this.books[i].year < old) {
-                old = this.books[i].year;
+                old = this.books[i];
             }
         }
         return old;

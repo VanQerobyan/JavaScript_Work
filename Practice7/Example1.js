@@ -54,6 +54,9 @@ Library.prototype.addBook = function(book) {
 Library.prototype.removeBook = function(title) {
     let elem = (element => element.title === title);
     let index = this.books.findIndex(elem);
+    if (index === -1) {
+        throw new Error("Book not found:Index -1");
+    }
     
     this.books.splice(index, 1);
 }
@@ -95,10 +98,11 @@ Library.prototype.returnBook =  function(title) {
         }
 }
 
+
+
 Library.prototype.showAllBooks = function() {
     for (let i = 0; i < this.books.length; ++i) {
-        console.log("Book: " + i);
-        console.log(this.books[i]);
+        console.log(this.books[i].getInfo());
     }
 }
 
@@ -118,9 +122,10 @@ Library.prototype.countAvailableBooks = function() {
 }
 
 Library.prototype.searchBooks = function(word) {
-    let res = this.books.filter(element => element.title.includes(word));
+    let res = this.books.filter(element => element.matchesTitle(word));
     return res;
 }
+
 
 Library.prototype.getOldestBook = function() {
     if (this.books.length === 0) return null;
@@ -128,7 +133,7 @@ Library.prototype.getOldestBook = function() {
     let old = this.books[0].year;
     for (let i = 1; i < this.books.length; ++i) {
         if (this.books[i].year < old) {
-            old = this.books[i].year;
+            old = this.books[i];
         }
      }
      return old;
@@ -189,7 +194,6 @@ console.log(library.countBooks()); // 3
 
 console.log("=== Final books ===");
 library.showAllBooks();
-
 
 
 
