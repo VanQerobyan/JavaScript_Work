@@ -6,10 +6,10 @@ class  Book {
     #isAvailable;
 
     constructor(title, author, year) {
-        this.#title = title;
-        this.#author = author;
-        this.#year = year;
-        this.#isAvailable = true;
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.իsAvailable = true;
     }
     get title() {
         return this.#title;
@@ -112,6 +112,10 @@ class Reader {
     }
 
     giveBackBook(book) {
+
+        if (!this.hasBook(book)) {
+            return `${this.name} dont have book`;
+        }
         let res = this.#borrowedBooks.filter(elem => elem !== book);
         this.#borrowedBooks = res;
         book.returnBook();
@@ -180,16 +184,22 @@ class Library {
 
     findBookByTitle(title) {
        let book = this.#books.find(elem => elem.title === title);
-       return book ? book : null;
+       return book ? book.getInfo() : null;
 }
 
     findBooksByAuthor(authorName) {
         let res = this.#books.filter(elem => elem.author === authorName);
-        return res;
+        return res.map(elem => elem.getInfo());
     }
 
     giveBookToReader(title, reader) {
         let res = this.#books.find(elem => elem.title === title);
+
+        if (res === undefined) {
+            console.log("Book not found");
+            return;
+        }
+
 
          if (!res.isAvailable) {
             console.log(`Book "${title}" is  not available.`);
@@ -210,7 +220,7 @@ class Library {
 
     showAvailableBooks() {
         let res = this.#books.filter(elem => elem.isAvailable);
-        return res;
+        return res.map(elem => elem.getInfo());
     }
 
 
