@@ -7,16 +7,16 @@ let myRange = {
         let end  = this.to;
         return{
             next() {
-                if(curVal <= end) {
-                    return {value: curVal++, done: false};
-                }
-                return {done: true};
+                // if(curVal <= end) {
+                //     return {value: curVal++, done: false};
+                // }
+                // return {value: undefined, done: true};
 
                 //Experiment
-            // if(curVal <= end) {
-            //     return {value: end--, done: false};
-            // }
-            // return {done: true};
+            if(curVal <= end) {
+                return {value: end--, done: false};
+            }
+            return {value: undefined, done: true};
         }
         }
     }
